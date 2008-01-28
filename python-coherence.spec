@@ -3,7 +3,7 @@
 Name: python-coherence
 Summary: A DLNA/UPnP MediaServer 
 Version: 0.5.0
-Release: %mkrel 1
+Release: %mkrel 2
 Group: Development/Python 
 URL: https://coherence.beebits.net/
 Source0: https://coherence.beebits.net/download/%{tarball_name}-%version.tar.gz
@@ -12,8 +12,8 @@ Provides: coherence = %version
 Requires: python-twisted-core
 Requires: python-twisted-web
 Requires: python-louie
-Requires: python-axiom
-Requires: python-epsilon
+Requires: python-axiom >= 0.5.7
+Requires: python-epsilon >= 0.5.8
 Requires: python-configobj
 Requires: python-celementtree
 Requires: python-elementtree
@@ -26,6 +26,7 @@ And together with GStreamer it forms a controllable DLNA/UPnP MediaRenderer.
 
 %files 
 %defattr(-,root,root)
+%doc docs/coherence.conf.example 
 %_bindir/*
 %py_platsitedir/*
 
