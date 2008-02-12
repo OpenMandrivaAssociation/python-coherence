@@ -21,7 +21,8 @@ BuildRequires: python-setuptools
 %py_requires -d
 
 %description
-As a stand-alone application Coherence acts as a DLNA/UPnP MediaServer and exports local and remote media files via its plugins to other UPnP clients.
+As a stand-alone application Coherence acts as a DLNA/UPnP MediaServer and
+exports local and remote media files via its plugins to other UPnP clients.
 And together with GStreamer it forms a controllable DLNA/UPnP MediaRenderer.
 
 %files 
