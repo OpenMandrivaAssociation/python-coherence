@@ -5,6 +5,7 @@ Summary: A DLNA/UPnP MediaServer
 Version: 0.5.0
 Release: %mkrel 2
 Group: Development/Python 
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: https://coherence.beebits.net/
 Source0: https://coherence.beebits.net/download/%{tarball_name}-%version.tar.gz
 License: MIT
