@@ -2,8 +2,8 @@
 
 Name: python-coherence
 Summary: A DLNA/UPnP MediaServer 
-Version: 0.5.0
-Release: %mkrel 2
+Version: 0.5.2
+Release: %mkrel 0.2008025
 Group: Development/Python 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: https://coherence.beebits.net/
@@ -12,12 +12,14 @@ License: MIT
 Provides: coherence = %version
 Requires: python-twisted-core
 Requires: python-twisted-web
+Requires: python-twisted-conch >= 0.8
 Requires: python-louie
 Requires: python-axiom >= 0.5.7
 Requires: python-epsilon >= 0.5.8
 Requires: python-configobj
 Requires: python-celementtree
 Requires: python-elementtree
+Requires: python-tagpy
 BuildRequires: python-setuptools
 %py_requires -d
 
