@@ -21,6 +21,7 @@ Requires: python-celementtree
 Requires: python-elementtree
 Requires: python-tagpy
 Requires: gstreamer0.10-python
+Requires: python-setuptools
 BuildRequires: python-setuptools
 %py_requires -d
 
