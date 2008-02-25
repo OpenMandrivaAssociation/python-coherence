@@ -3,7 +3,7 @@
 Name: python-coherence
 Summary: A DLNA/UPnP MediaServer 
 Version: 0.5.2
-Release: %mkrel 0.2008025
+Release: %mkrel 0.2008025.1
 Group: Development/Python 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: https://coherence.beebits.net/
@@ -20,6 +20,7 @@ Requires: python-configobj
 Requires: python-celementtree
 Requires: python-elementtree
 Requires: python-tagpy
+Requires: gstreamer0.10-python
 BuildRequires: python-setuptools
 %py_requires -d
 
