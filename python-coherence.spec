@@ -1,10 +1,10 @@
 %define tarball_name Coherence
 
 Name: python-coherence
-Summary: A DLNA/UPnP MediaServer 
+Summary: A DLNA/UPnP MediaServer/MediaRenderer in addition of a framework
 Version: 0.5.2
-Release: %mkrel 0.2008025.2
-Group: Development/Python 
+Release: %mkrel 0.2008025.3
+Group: Networking/File transfer 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: https://coherence.beebits.net/
 Source0: https://coherence.beebits.net/download/%{tarball_name}-%version.tar.gz
@@ -19,7 +19,7 @@ Requires: python-epsilon >= 0.5.8
 Requires: python-configobj
 Requires: python-celementtree
 Requires: python-elementtree
-Requires: python-tagpy
+Requires: pyid3lib
 Requires: gstreamer0.10-python
 Requires: python-setuptools
 Requires: python-nose
