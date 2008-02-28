@@ -3,7 +3,7 @@
 Name: python-coherence
 Summary: A DLNA/UPnP MediaServer/MediaRenderer in addition of a framework
 Version: 0.5.2
-Release: %mkrel 0.2008025.3
+Release: %mkrel 0.20080228.1
 Group: Networking/File transfer 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: https://coherence.beebits.net/
@@ -23,6 +23,7 @@ Requires: pyid3lib
 Requires: gstreamer0.10-python
 Requires: python-setuptools
 Requires: python-nose
+Requires: python-sqlite2
 BuildRequires: python-setuptools
 %py_requires -d
 
