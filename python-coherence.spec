@@ -68,7 +68,7 @@ A simple desktop applet to control (start/stop) coherence
 %files applet
 %defattr(-,root,root)
 %_bindir/applet-coherence
-/usr/share/icons/coherence/*
+%{_iconsdir}/coherence/*
 %{_datadir}/applications/%{name}-applet.desktop
 %{_iconsdir}/coherence.png
 %{_liconsdir}/coherence.png
