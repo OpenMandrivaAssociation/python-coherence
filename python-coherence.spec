@@ -3,7 +3,7 @@
 Name: python-coherence
 Summary: A DLNA/UPnP MediaServer/MediaRenderer in addition of a framework
 Version: 0.5.4
-Release: %mkrel 1
+Release: %mkrel 2
 Group: Networking/File transfer 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: https://coherence.beebits.net/
@@ -81,6 +81,21 @@ python setup.py install --root=%buildroot --install-lib=%py_platsitedir
 install -m 755 misc/coherence-initscript.sh %buildroot/%_initrddir/coherence
 install -m 644 %SOURCE1 %buildroot/%_sysconfdir/coherence
 mv "%buildroot/%py_platsitedir/misc/Desktop Applet/tango-system-file-manager.png" %buildroot/usr/share/icons/coherence
+
+# menu
+
+cat > $RPM_BUILD_ROOT%{_datadir}/applications/%{name}-applet.desktop <<EOF
+[Desktop Entry]
+Encoding=UTF-8
+Name=Coherence
+Comment=DLNA/UPnP MediaServer/MediaRenderer
+Exec=applet-coherence
+Icon=coherence
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=X-MandrivaLinux-Internet;X-MandrivaLinux-CrossDesktop
+EOF
 
 %clean
 rm -rf %buildroot
