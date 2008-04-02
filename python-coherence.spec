@@ -28,7 +28,7 @@ Requires: python-nose
 Requires: python-sqlite2
 Requires(post):   rpm-helper
 Requires(preun):  rpm-helper
-BuildRequires: python-setuptools
+BuildRequires: python-setuptools, imagemagick
 %py_requires -d
 
 %description
