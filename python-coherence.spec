@@ -9,6 +9,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: https://coherence.beebits.net/
 Source0: https://coherence.beebits.net/download/%{tarball_name}-%version.tar.bz2
 Source1: coherence.conf
+Source2: coherence-32x32.png
 License: MIT
 Provides: coherence = %version
 Requires: python-twisted-core
@@ -41,6 +42,14 @@ And together with GStreamer it forms a controllable DLNA/UPnP MediaRenderer.
 %preun
 %_preun_service coherence
 
+%files 
+%defattr(-,root,root)
+%doc docs/coherence.conf.example 
+%_bindir/coherence
+%_initrddir/coherence
+%config(noreplace) %_sysconfdir/coherence/*conf
+%py_platsitedir/*
+
 %package applet
 Summary: Applet for controlling coherence
 Group:  Networking/File transfer
@@ -50,18 +59,20 @@ Requires: python-qt4, python-qt4-core, python-qt4-gui
 %description applet
 A simple desktop applet to control (start/stop) coherence
 
-%files 
-%defattr(-,root,root)
-%doc docs/coherence.conf.example 
-%_bindir/coherence
-%_initrddir/coherence
-%config(noreplace) %_sysconfdir/coherence/*conf
-%py_platsitedir/*
+%post applet
+%{update_menus}
+
+%postun applet
+%{clean_menus}
 
 %files applet
 %defattr(-,root,root)
 %_bindir/applet-coherence
 /usr/share/icons/coherence/*
+%{_datadir}/applications/%{name}-applet.desktop
+%{_iconsdir}/hicolor/16x16/apps/coherence.png
+%{_iconsdir}/hicolor/32x32/apps/coherence.png
+%{_iconsdir}/hicolor/48x48/apps/coherence.png
 
 #------------------------------------------------------------
 
@@ -76,14 +87,20 @@ rm -rf %buildroot
 mkdir -p %buildroot/%_initrddir
 mkdir -p %buildroot/%_sysconfdir/coherence
 mkdir -p %buildroot/usr/share/icons/coherence
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
 
 python setup.py install --root=%buildroot --install-lib=%py_platsitedir
 install -m 755 misc/coherence-initscript.sh %buildroot/%_initrddir/coherence
 install -m 644 %SOURCE1 %buildroot/%_sysconfdir/coherence
 mv "%buildroot/%py_platsitedir/misc/Desktop Applet/tango-system-file-manager.png" %buildroot/usr/share/icons/coherence
 
-# menu
+# install icons
+mkdir -p %{buildroot}%{_iconsdir}/hicolor/{16x16,32x32,48x48}/apps
+install -m 644 %SOURCE2 %{buildroot}%{_iconsdir}/hicolor/32x32/apps/coherence.png
+convert -scale 16x16 %SOURCE2 $RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/apps/coherence.png
+convert -scale 48x48 %SOURCE2 $RPM_BUILD_ROOT%{_iconsdir}/hicolor/48x48/apps/coherence.png
 
+# menu
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/%{name}-applet.desktop <<EOF
 [Desktop Entry]
 Encoding=UTF-8
