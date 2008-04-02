@@ -3,7 +3,7 @@
 Name: python-coherence
 Summary: A DLNA/UPnP MediaServer/MediaRenderer in addition of a framework
 Version: 0.5.4
-Release: %mkrel 2
+Release: %mkrel 3
 Group: Networking/File transfer 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: https://coherence.beebits.net/
@@ -70,9 +70,9 @@ A simple desktop applet to control (start/stop) coherence
 %_bindir/applet-coherence
 /usr/share/icons/coherence/*
 %{_datadir}/applications/%{name}-applet.desktop
-%{_iconsdir}/hicolor/16x16/apps/coherence.png
-%{_iconsdir}/hicolor/32x32/apps/coherence.png
-%{_iconsdir}/hicolor/48x48/apps/coherence.png
+%{_iconsdir}/coherence.png
+%{_liconsdir}/coherence.png
+%{_miconsdir}/coherence.png
 
 #------------------------------------------------------------
 
@@ -95,10 +95,12 @@ install -m 644 %SOURCE1 %buildroot/%_sysconfdir/coherence
 mv "%buildroot/%py_platsitedir/misc/Desktop Applet/tango-system-file-manager.png" %buildroot/usr/share/icons/coherence
 
 # install icons
-mkdir -p %{buildroot}%{_iconsdir}/hicolor/{16x16,32x32,48x48}/apps
-install -m 644 %SOURCE2 %{buildroot}%{_iconsdir}/hicolor/32x32/apps/coherence.png
-convert -scale 16x16 %SOURCE2 $RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/apps/coherence.png
-convert -scale 48x48 %SOURCE2 $RPM_BUILD_ROOT%{_iconsdir}/hicolor/48x48/apps/coherence.png
+mkdir -p %{buildroot}%{_miconsdir}
+mkdir -p %{buildroot}%{_iconsdir}
+mkdir -p %{buildroot}%{_liconsdir}
+install -m 644 %SOURCE2 %{buildroot}%{_iconsdir}/coherence.png
+convert -scale 16x16 %SOURCE2 $RPM_BUILD_ROOT%{_miconsdir}/coherence.png
+convert -scale 48x48 %SOURCE2 $RPM_BUILD_ROOT%{_liconsdir}/coherence.png
 
 # menu
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/%{name}-applet.desktop <<EOF
