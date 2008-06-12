@@ -59,11 +59,15 @@ Requires: python-qt4, python-qt4-core, python-qt4-gui
 %description applet
 A simple desktop applet to control (start/stop) coherence
 
+%if %mdkversion < 200900
 %post applet
 %{update_menus}
+%endif
 
+%if %mdkversion < 200900
 %postun applet
 %{clean_menus}
+%endif
 
 %files applet
 %defattr(-,root,root)
