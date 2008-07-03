@@ -2,8 +2,8 @@
 
 Name: python-coherence
 Summary: A DLNA/UPnP MediaServer/MediaRenderer in addition of a framework
-Version: 0.5.4
-Release: %mkrel 3
+Version: 0.5.8
+Release: %mkrel 1 
 Group: Networking/File transfer 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: https://coherence.beebits.net/
@@ -15,7 +15,7 @@ Provides: coherence = %version
 Requires: python-twisted-core
 Requires: python-twisted-web
 Requires: python-twisted-conch >= 0.8
-Requires: python-louie
+#Requires: python-louie
 Requires: python-axiom >= 0.5.7
 Requires: python-epsilon >= 0.5.8
 Requires: python-configobj
