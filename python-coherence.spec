@@ -23,7 +23,11 @@ Requires: python-celementtree
 Requires: python-elementtree
 Requires: pyid3lib
 Requires: gstreamer0.10-python
+%if %mdkversion > 200900
+Requires:	python-pkg-resources
+%else
 Requires: python-setuptools
+%endif
 Requires: python-nose
 Requires: python-sqlite2
 Requires(post):   rpm-helper
