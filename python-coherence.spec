@@ -2,8 +2,8 @@
 
 Name: python-coherence
 Summary: A DLNA/UPnP MediaServer/MediaRenderer in addition of a framework
-Version: 0.5.8
-Release: %mkrel 3
+Version: 0.6.0
+Release: %mkrel 1
 Group: Networking/File transfer 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: https://coherence.beebits.net/
@@ -21,8 +21,14 @@ Requires: python-epsilon >= 0.5.8
 Requires: python-configobj
 Requires: python-celementtree
 Requires: python-elementtree
+Requires: python-dbus
+Requires: python-mechanize
 Requires: pyid3lib
+# Gstreamer
 Requires: gstreamer0.10-python
+Requires: gstreamer0.10-flac
+Requires: gstreamer0.10-plugins-base
+
 %if %mdkversion > 200900
 Requires:	python-pkg-resources
 %else
