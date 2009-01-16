@@ -10,6 +10,7 @@ URL: https://coherence.beebits.net/
 Source0: https://coherence.beebits.net/download/%{tarball_name}-%version.tar.bz2
 Source1: coherence.conf
 Source2: coherence-32x32.png
+Patch0: Coherence-0.6.0-daemon_name_fix.diff
 License: MIT
 Provides: coherence = %version
 Requires: python-twisted-core
@@ -92,6 +93,7 @@ A simple desktop applet to control (start/stop) coherence
 
 %prep
 %setup -q -n %{tarball_name}-%version
+%patch0 -p0
 
 %build
 python setup.py build
