@@ -108,7 +108,7 @@ mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
 python setup.py install --root=%buildroot --install-lib=%py_platsitedir
 install -m 755 misc/coherence-initscript.sh %buildroot/%_initrddir/coherence
 install -m 644 %SOURCE1 %buildroot/%_sysconfdir/coherence
-mv "%buildroot/%py_platsitedir/misc/Desktop Applet/tango-system-file-manager.png" %buildroot/usr/share/icons/coherence
+mv "%buildroot/%py_platsitedir/misc/Desktop-Applet/tango-system-file-manager.png" %buildroot/usr/share/icons/coherence
 
 # install icons
 mkdir -p %{buildroot}%{_miconsdir}
