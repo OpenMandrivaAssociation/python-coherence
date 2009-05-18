@@ -2,7 +2,7 @@
 
 Name: python-coherence
 Summary: A DLNA/UPnP MediaServer/MediaRenderer in addition of a framework
-Version: 0.6.2
+Version: 0.6.4
 Release: %mkrel 1
 Group: Networking/File transfer 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
