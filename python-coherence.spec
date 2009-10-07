@@ -60,6 +60,7 @@ And together with GStreamer it forms a controllable DLNA/UPnP MediaRenderer.
 %_initrddir/coherence
 %config(noreplace) %_sysconfdir/coherence/*conf
 %py_platsitedir/*
+%{_datadir}/%{name}/
 
 %package applet
 Summary: Applet for controlling coherence
@@ -104,6 +105,7 @@ mkdir -p %buildroot/%_initrddir
 mkdir -p %buildroot/%_sysconfdir/coherence
 mkdir -p %buildroot/usr/share/icons/coherence
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/%{name}/
 
 python setup.py install --root=%buildroot --install-lib=%py_platsitedir
 install -m 755 misc/coherence-initscript.sh %buildroot/%_initrddir/coherence
