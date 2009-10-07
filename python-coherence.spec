@@ -3,7 +3,7 @@
 Name: python-coherence
 Summary: A DLNA/UPnP MediaServer/MediaRenderer in addition of a framework
 Version: 0.6.4
-Release: %mkrel 1
+Release: %mkrel 2
 Group: Networking/File transfer 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: https://coherence.beebits.net/
@@ -60,7 +60,7 @@ And together with GStreamer it forms a controllable DLNA/UPnP MediaRenderer.
 %_initrddir/coherence
 %config(noreplace) %_sysconfdir/coherence/*conf
 %py_platsitedir/*
-%{_datadir}/%{name}/
+/srv/public
 
 %package applet
 Summary: Applet for controlling coherence
@@ -105,7 +105,7 @@ mkdir -p %buildroot/%_initrddir
 mkdir -p %buildroot/%_sysconfdir/coherence
 mkdir -p %buildroot/usr/share/icons/coherence
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/%{name}/
+mkdir -p $RPM_BUILD_ROOT/srv/public
 
 python setup.py install --root=%buildroot --install-lib=%py_platsitedir
 install -m 755 misc/coherence-initscript.sh %buildroot/%_initrddir/coherence
