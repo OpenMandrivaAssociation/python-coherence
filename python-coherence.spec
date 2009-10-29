@@ -3,7 +3,7 @@
 Name: python-coherence
 Summary: A DLNA/UPnP MediaServer/MediaRenderer in addition of a framework
 Version: 0.6.4
-Release: %mkrel 2
+Release: %mkrel 3
 Group: Networking/File transfer 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: https://coherence.beebits.net/
@@ -61,6 +61,7 @@ And together with GStreamer it forms a controllable DLNA/UPnP MediaRenderer.
 %config(noreplace) %_sysconfdir/coherence/*conf
 %py_platsitedir/*
 /srv/public
+%{_datadir}/dbus-1/services/
 
 %package applet
 Summary: Applet for controlling coherence
@@ -106,11 +107,14 @@ mkdir -p %buildroot/%_sysconfdir/coherence
 mkdir -p %buildroot/usr/share/icons/coherence
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
 mkdir -p $RPM_BUILD_ROOT/srv/public
+# Install the D-Bus service file
+%{__mkdir_p} %{buildroot}/%{_datadir}/dbus-1/services
 
 python setup.py install --root=%buildroot --install-lib=%py_platsitedir
 install -m 755 misc/coherence-initscript.sh %buildroot/%_initrddir/coherence
 install -m 644 %SOURCE1 %buildroot/%_sysconfdir/coherence
 mv "%buildroot/%py_platsitedir/misc/Desktop-Applet/tango-system-file-manager.png" %buildroot/usr/share/icons/coherence
+install -m 644 misc/org.Coherence.service %{buildroot}/%{_datadir}/dbus-1/services/
 
 # install icons
 mkdir -p %{buildroot}%{_miconsdir}
