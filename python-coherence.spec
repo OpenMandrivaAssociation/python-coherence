@@ -40,6 +40,8 @@ Requires: python-sqlite2
 Requires(post):   rpm-helper
 Requires(preun):  rpm-helper
 BuildRequires: python-setuptools, imagemagick
+BuildRequires: python-twisted-core
+BuildRequires: python-twisted-web
 %py_requires -d
 
 %description
