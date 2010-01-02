@@ -2,12 +2,12 @@
 
 Name: python-coherence
 Summary: A DLNA/UPnP MediaServer/MediaRenderer in addition of a framework
-Version: 0.6.4
-Release: %mkrel 3
+Version: 0.6.6.2
+Release: %mkrel 1
 Group: Networking/File transfer 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: https://coherence.beebits.net/
-Source0: https://coherence.beebits.net/download/%{tarball_name}-%version.tar.bz2
+Source0: https://coherence.beebits.net/download/%{tarball_name}-%{version}.tar.gz
 Source1: coherence.conf
 Source2: coherence-32x32.png
 Patch0: Coherence-0.6.0-daemon_name_fix.diff
