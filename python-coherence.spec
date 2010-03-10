@@ -65,6 +65,8 @@ And together with GStreamer it forms a controllable DLNA/UPnP MediaRenderer.
 /srv/public
 %{_datadir}/dbus-1/services/
 
+#------------------------------------------------------------
+
 %package applet
 Summary: Applet for controlling coherence
 Group:  Networking/File transfer
@@ -73,16 +75,6 @@ Requires: python-qt4, python-qt4-core, python-qt4-gui
 
 %description applet
 A simple desktop applet to control (start/stop) coherence
-
-%if %mdkversion < 200900
-%post applet
-%{update_menus}
-%endif
-
-%if %mdkversion < 200900
-%postun applet
-%{clean_menus}
-%endif
 
 %files applet
 %defattr(-,root,root)
