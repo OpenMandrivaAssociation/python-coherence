@@ -99,8 +99,8 @@ rm -rf %buildroot
 mkdir -p %buildroot/%_initrddir
 mkdir -p %buildroot/%_sysconfdir/coherence
 mkdir -p %buildroot/usr/share/icons/coherence
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
-mkdir -p $RPM_BUILD_ROOT/srv/public
+mkdir -p %{buildroot}%{_datadir}/applications/
+mkdir -p %{buildroot}/srv/public
 # Install the D-Bus service file
 %{__mkdir_p} %{buildroot}/%{_datadir}/dbus-1/services
 
@@ -115,11 +115,11 @@ mkdir -p %{buildroot}%{_miconsdir}
 mkdir -p %{buildroot}%{_iconsdir}
 mkdir -p %{buildroot}%{_liconsdir}
 install -m 644 %SOURCE2 %{buildroot}%{_iconsdir}/coherence.png
-convert -scale 16x16 %SOURCE2 $RPM_BUILD_ROOT%{_miconsdir}/coherence.png
-convert -scale 48x48 %SOURCE2 $RPM_BUILD_ROOT%{_liconsdir}/coherence.png
+convert -scale 16x16 %SOURCE2 %{buildroot}%{_miconsdir}/coherence.png
+convert -scale 48x48 %SOURCE2 %{buildroot}%{_liconsdir}/coherence.png
 
 # menu
-cat > $RPM_BUILD_ROOT%{_datadir}/applications/%{name}-applet.desktop <<EOF
+cat > %{buildroot}%{_datadir}/applications/%{name}-applet.desktop <<EOF
 [Desktop Entry]
 Encoding=UTF-8
 Name=Coherence
