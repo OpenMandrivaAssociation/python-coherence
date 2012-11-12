@@ -1,0 +1,20 @@
+--- misc/coherence-initscript.sh	2008-03-31 19:39:32.000000000 +0200
++++ misc/coherence-initscript.sh.oden	2009-01-16 09:35:43.000000000 +0100
+@@ -35,7 +35,7 @@
+ start() {
+ 	# Check if it is already running
+ 	if [ ! -f /var/lock/subsys/$PROGNAME ]; then
+-	    gprintf "Starting %s daemon: " "$DAEMON"
++	    gprintf "Starting %s daemon: " "$PROGNAME"
+ 	    daemon python /usr/bin/$PROGNAME -d -c $CONFIGFILE -l $LOGFILE
+ 	    RETVAL=$?
+ 	    [ $RETVAL -eq 0 ] && touch /var/lock/subsys/$PROGNAME
+@@ -45,7 +45,7 @@
+ }
+ 
+ stop() {
+-	gprintf "Stopping %s daemon: " "$DAEMON"
++	gprintf "Stopping %s daemon: " "$PROGNAME"
+ 	killproc python /usr/bin/$PROGNAME
+ 	RETVAL=$?
+ 	[ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/$PROGNAME
