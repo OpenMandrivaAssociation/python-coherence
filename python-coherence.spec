@@ -3,7 +3,7 @@
 Name: python-coherence
 Summary: A DLNA/UPnP MediaServer/MediaRenderer in addition of a framework
 Version: 0.6.6.2
-Release: %mkrel 3
+Release: 5
 Group: Networking/File transfer 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: https://coherence.beebits.net/
@@ -99,8 +99,8 @@ rm -rf %buildroot
 mkdir -p %buildroot/%_initrddir
 mkdir -p %buildroot/%_sysconfdir/coherence
 mkdir -p %buildroot/usr/share/icons/coherence
-mkdir -p %{buildroot}%{_datadir}/applications/
-mkdir -p %{buildroot}/srv/public
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
+mkdir -p $RPM_BUILD_ROOT/srv/public
 # Install the D-Bus service file
 %{__mkdir_p} %{buildroot}/%{_datadir}/dbus-1/services
 
@@ -115,11 +115,11 @@ mkdir -p %{buildroot}%{_miconsdir}
 mkdir -p %{buildroot}%{_iconsdir}
 mkdir -p %{buildroot}%{_liconsdir}
 install -m 644 %SOURCE2 %{buildroot}%{_iconsdir}/coherence.png
-convert -scale 16x16 %SOURCE2 %{buildroot}%{_miconsdir}/coherence.png
-convert -scale 48x48 %SOURCE2 %{buildroot}%{_liconsdir}/coherence.png
+convert -scale 16x16 %SOURCE2 $RPM_BUILD_ROOT%{_miconsdir}/coherence.png
+convert -scale 48x48 %SOURCE2 $RPM_BUILD_ROOT%{_liconsdir}/coherence.png
 
 # menu
-cat > %{buildroot}%{_datadir}/applications/%{name}-applet.desktop <<EOF
+cat > $RPM_BUILD_ROOT%{_datadir}/applications/%{name}-applet.desktop <<EOF
 [Desktop Entry]
 Encoding=UTF-8
 Name=Coherence
@@ -135,4 +135,134 @@ EOF
 %clean
 rm -rf %buildroot
 
+
+
 %changelog
+* Thu May 05 2011 Oden Eriksson <oeriksson@mandriva.com> 0.6.6.2-3mdv2011.0
++ Revision: 667924
+- mass rebuild
+
+* Tue Nov 02 2010 Götz Waschk <waschk@mandriva.org> 0.6.6.2-2mdv2011.0
++ Revision: 591967
+- rebuild for new python 2.7
+
+  + Nicolas Lécureuil <nlecureuil@mandriva.com>
+    - Clean spec file
+
+* Sun Jan 03 2010 Frederik Himpe <fhimpe@mandriva.org> 0.6.6.2-1mdv2010.1
++ Revision: 485668
+- Fix BuildRequires
+- Update to new version 0.6.6.2
+
+* Thu Oct 29 2009 Erwan Velu <erwan@mandriva.org> 0.6.4-3mdv2010.0
++ Revision: 460064
+- Fixing dbus service file; solves #54984
+
+* Wed Oct 07 2009 Erwan Velu <erwan@mandriva.org> 0.6.4-2mdv2010.0
++ Revision: 455573
+- Using FHS is better. Putting the default file in /srv/public
+- Removing default usage of /tmp
+
+* Mon May 18 2009 Frederik Himpe <fhimpe@mandriva.org> 0.6.4-1mdv2010.0
++ Revision: 377315
+- update to new version 0.6.4
+
+* Mon Feb 23 2009 Erwan Velu <erwan@mandriva.org> 0.6.2-1mdv2009.1
++ Revision: 344324
+- Fixing applet path
+- 0.6.2
+
+* Thu Jan 22 2009 Erwan Velu <erwan@mandriva.org> 0.6.0-4mdv2009.1
++ Revision: 332417
+- Rebuild against new config file
+- Removing dbus
+
+* Wed Jan 21 2009 Erwan Velu <erwan@mandriva.org> 0.6.0-3mdv2009.1
++ Revision: 332385
+- Disabling dbus as it can generate some high cpu usage
+
+* Fri Jan 16 2009 Oden Eriksson <oeriksson@mandriva.com> 0.6.0-2mdv2009.1
++ Revision: 330134
+- bump release
+- fix the daemon name in the initscript
+
+* Mon Jan 05 2009 Erwan Velu <erwan@mandriva.org> 0.6.0-1mdv2009.1
++ Revision: 325130
+- 0.6.0
+
+* Fri Dec 26 2008 Funda Wang <fwang@mandriva.org> 0.5.8-3mdv2009.1
++ Revision: 319370
+- rebuild for new python
+
+* Sat Nov 29 2008 Tomasz Pawel Gajc <tpg@mandriva.org> 0.5.8-2mdv2009.1
++ Revision: 308076
+- require python-pkg-resources for mdv version greater than 200900, instead of python-setuptools which requires bunch of useless python stuff and python-devel
+
+* Thu Jul 03 2008 Erwan Velu <erwan@mandriva.org> 0.5.8-1mdv2009.0
++ Revision: 231380
+- Adding source file
+- 0.5.8
+
+* Thu Jun 12 2008 Pixel <pixel@mandriva.com> 0.5.4-3mdv2009.0
++ Revision: 218439
+- rpm filetriggers deprecates update_menus/update_scrollkeeper/update_mime_database/update_icon_cache/update_desktop_database/post_install_gconf_schemas
+
+  + Nicolas Lécureuil <nlecureuil@mandriva.com>
+    - Use rpm macros
+
+* Wed Apr 02 2008 Erwan Velu <erwan@mandriva.org> 0.5.4-3mdv2008.1
++ Revision: 191684
+- Fixing menu icon
+
+* Wed Apr 02 2008 Erwan Velu <erwan@mandriva.org> 0.5.4-2mdv2008.1
++ Revision: 191595
+- Fixing buildrequires
+- Finishing menu entry
+
+  + Anne Nicolas <ennael@mandriva.org>
+    - Add menu entry
+      Increase release
+
+* Wed Apr 02 2008 Erwan Velu <erwan@mandriva.org> 0.5.4-1mdv2008.1
++ Revision: 191550
+- 0.5.4
+  Splitting applet in another rpm
+
+* Sat Mar 01 2008 Erwan Velu <erwan@mandriva.org> 0.5.2-1mdv2008.1
++ Revision: 177155
+- 0.5.2
+
+* Thu Feb 28 2008 Erwan Velu <erwan@mandriva.org> 0.5.2-0.20080228.1mdv2008.1
++ Revision: 176211
+- Fixing requires (thx neocluster)
+  Fixes bug #120 and #121
+
+* Tue Feb 26 2008 Erwan Velu <erwan@mandriva.org> 0.5.2-0.2008025.3mdv2008.1
++ Revision: 175360
+- Fixing tagpy dependency
+  Fixing Summary
+  Fixing Group
+
+* Mon Feb 25 2008 Erwan Velu <erwan@mandriva.org> 0.5.2-0.2008025.2mdv2008.1
++ Revision: 175175
+- More and more Requires
+- Adding more requires
+- Adding requires
+
+* Mon Feb 25 2008 Erwan Velu <erwan@mandriva.org> 0.5.2-0.2008025mdv2008.1
++ Revision: 175063
+- 0.5.2 (svn 20080225)
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - fix no-buildroot-tag
+    - fix description-line-too-long
+
+* Mon Jan 28 2008 Erwan Velu <erwan@mandriva.org> 0.5.0-2mdv2008.1
++ Revision: 159483
+- Adding more restrictive buildrequires
+
+* Sun Jan 27 2008 Helio Chissini de Castro <helio@mandriva.com> 0.5.0-1mdv2008.1
++ Revision: 158840
+- import python-coherence
+
+
