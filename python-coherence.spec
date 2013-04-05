@@ -1,5 +1,7 @@
 %define tarball_name Coherence
 
+%define debug_package %{nil}
+
 Name: python-coherence
 Summary: A DLNA/UPnP MediaServer/MediaRenderer in addition of a framework
 Version: 0.6.6.2
@@ -30,11 +32,7 @@ Requires: gstreamer0.10-python
 Requires: gstreamer0.10-flac
 Requires: gstreamer0.10-plugins-base
 
-%if %mdkversion > 200900
 Requires:	python-pkg-resources
-%else
-Requires: python-setuptools
-%endif
 Requires: python-nose
 Requires: python-sqlite2
 Requires(post):   rpm-helper
@@ -56,7 +54,6 @@ And together with GStreamer it forms a controllable DLNA/UPnP MediaRenderer.
 %_preun_service coherence
 
 %files 
-%defattr(-,root,root)
 %doc docs/coherence.conf.example 
 %_bindir/coherence
 %_initrddir/coherence
@@ -77,7 +74,6 @@ Requires: python-qt4, python-qt4-core, python-qt4-gui
 A simple desktop applet to control (start/stop) coherence
 
 %files applet
-%defattr(-,root,root)
 %_bindir/applet-coherence
 %{_iconsdir}/coherence/*
 %{_datadir}/applications/%{name}-applet.desktop
@@ -133,7 +129,6 @@ Categories=X-MandrivaLinux-Internet;X-MandrivaLinux-CrossDesktop
 EOF
 
 %clean
-rm -rf %buildroot
 
 
 
