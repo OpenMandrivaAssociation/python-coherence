@@ -5,7 +5,7 @@
 Summary:	A DLNA/UPnP MediaServer/MediaRenderer in addition of a framework
 Name:		python-coherence
 Version:	0.6.6.2
-Release:	6
+Release:	7
 Group:		Networking/File transfer 
 License:	MIT
 Url:		https://coherence.beebits.net/
