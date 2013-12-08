@@ -39,7 +39,7 @@ Requires:	python-pkg-resources
 Requires:	python-nose
 Requires:	python-sqlite2
 Requires(post,preun):	rpm-helper
-%py_requires -d
+BuildRequires:  python-devel
 
 %description
 As a stand-alone application Coherence acts as a DLNA/UPnP MediaServer and
