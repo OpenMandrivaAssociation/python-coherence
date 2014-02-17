@@ -40,6 +40,7 @@ Requires(preun):  rpm-helper
 BuildRequires: python-setuptools, imagemagick
 BuildRequires: python-twisted-core
 BuildRequires: python-twisted-web
+BuildRequires:	pkgconfig(python-2.7)
 %py_requires -d
 
 %description
