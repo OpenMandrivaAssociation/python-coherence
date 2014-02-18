@@ -41,7 +41,7 @@ BuildRequires: python-setuptools, imagemagick
 BuildRequires: python-twisted-core
 BuildRequires: python-twisted-web
 BuildRequires:	pkgconfig(python-2.7)
-%py_requires -d
+BuildRequires:  python-devel
 
 %description
 As a stand-alone application Coherence acts as a DLNA/UPnP MediaServer and
